@@ -192,7 +192,24 @@ func main() {
 	// 15 递归调用
 	fmt.Println(fact(7))
 
-	// 16 todo
+	// 16 指针
+	val := 1
+	fmt.Println("initial:", val)
+	zeroval(val)
+	fmt.Println("zeroval:", val)
+	zeroptr(&val)
+	fmt.Println("zeroptr:", val)
+
+	// 17 结构体(定义，初始化，赋值，传递)
+}
+
+func zeroval(val int) {
+	val = 0
+}
+
+func zeroptr(val *int) {
+	*val = 0
+	fmt.Println(&val)
 }
 
 func fact(n int) int {
