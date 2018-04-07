@@ -201,6 +201,43 @@ func main() {
 	fmt.Println("zeroptr:", val)
 
 	// 17 结构体(定义，初始化，赋值，传递)
+	p := person{"bob", 20}
+	fmt.Println(p) // {bob 20}
+	p1 := person{name: "bob", age: 20}
+	fmt.Println(p1)
+	p2 := &person{"philip", 28}
+	fmt.Println(p2)  // &{philip 28}
+	fmt.Println(*p2) //{philip 28}
+	p2.age = 29
+	fmt.Println(*p2)
+	p3 := person{}
+	fmt.Println(p3)
+	p3.age = 30
+	fmt.Println(p3)
+
+	// 18 方法
+	fmt.Println(p.getname())
+	p.setname("guo") // 不会改变
+	fmt.Println(p.getname())
+	p.setnameptr("guo")
+	fmt.Println(p.getname())
+
+	// 19 接口
+
+}
+func (p *person) setnameptr(name string) {
+	p.name = name
+}
+func (p person) setname(name string) {
+	p.name = name
+}
+func (p person) getname() string {
+	return p.name
+}
+
+type person struct {
+	name string
+	age  int
 }
 
 func zeroval(val int) {
